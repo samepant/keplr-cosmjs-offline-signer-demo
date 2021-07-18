@@ -65,12 +65,7 @@ function App() {
       if (window && window.getOfflineSigner) {
         const offlineSigner = window.getOfflineSigner("purp-chain");
         const accounts = await offlineSigner.getAccounts();
-        const signingClient = await SigningStargateClient.offline(
-          offlineSigner,
-          {
-
-          }
-        );
+        const signingClient = await SigningStargateClient.offline(offlineSigner);
         const { bodyBytes, signatures } = await signingClient.sign(
           address,
           txMsgs,
